@@ -1,4 +1,21 @@
+Situación problemática
+En muchas escuelas, el control de materiales como libros, útiles y equipos se realiza de manera manual en cuadernos o hojas sueltas. Esto provoca errores frecuentes, pérdidas de recursos y dificultad para saber qué materiales están disponibles. La falta de un sistema organizado afecta tanto a los docentes como al personal administrativo, generando retrasos y desorden.
 
+Sectores beneficiados
+Educación: Escuelas, colegios y centros de formación.
+
+Administrativo: Personal encargado de bodegas y suministros.
+
+Docentes y estudiantes: Acceso más rápido y confiable a los materiales necesarios.
+
+Funciones de la solución web
+La página web propuesta resolverá el problema mediante las siguientes funciones:
+
+Registro de materiales
+
+Ingreso de nuevos artículos con nombre, cantidad y categoría.
+
+Actualización de existencias en tiempo real.
 
 #############################################
 #RESPUESTAS
