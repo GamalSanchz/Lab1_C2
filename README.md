@@ -61,12 +61,12 @@ R//@submit.prevent="agregarMaterial"
 Este evento se activa cuando el usuario hace clic en el botón Agregar dentro del formulario. Su función es evitar que la página se recargue y, en su lugar, ejecutar el método agregarMaterial, que valida los datos y añade el nuevo material al inventario.
 
 Explique para qué utilizó la directiva v-for dentro de su aplicación.
-R//
+R//La usamos para mostrar la lista de materiales del inventario, básicamente le digo a Vue: "por cada material que haya guardado, muéstrame una fila en la tabla con su nombre, categoría y cantidad". Sin v-for tendría que escribir cada fila a mano, lo cual no tiene sentido si los datos cambian dinámicamente
 
 Describa en qué situación utilizó v-if y qué problema resuelve dentro de su
 interfaz.
-R//
+R//La usamos en dos momentos: primero para mostrar la tabla solo cuando hay materiales registrados, y segundo para mostrar los mensajes de error cuando el usuario deja un campo vacío o ingresa una cantidad inválida, el problema que resuelve es evitar mostrar una tabla vacía o confusa al usuario en cambio, aparece el mensaje "No hay materiales registrados" hasta que realmente haya algo que mostrar
 
 Explique cómo se realiza la validación de datos en su aplicación y por qué es
 importante validar la información ingresada por el usuario.
-R//
+R//Cuando el usuario hace clic en "Agregar", primero se ejecuta una función que revisa que ningún campo esté vacío y que la cantidad sea mayor a cero, pero si algo está mal, se muestra un mensaje de error en rojo justo debajo del campo correspondiente y no se agrega nada al inventario, su importancia radica en que sin validación cualquier persona podría guardar datos incompletos o sin sentido, lo que arruinaría la información del sistema
