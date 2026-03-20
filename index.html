@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Inventario Escolar</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { margin: 5px; padding: 5px; }
+    .error { color: red; font-size: 0.9em; }
+    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Inventario Escolar</h1>
+
+    <!-- Formulario de ingreso -->
+    <form @submit.prevent="agregarMaterial">
+      <label>Nombre del material:</label>
+      <input type="text" v-model="nuevoNombre" />
+      <span class="error" v-if="errores.nombre">{{ errores.nombre }}</span><br>
+
+      <label>Categoría:</label>
+      <input type="text" v-model="nuevaCategoria" />
+      <span class="error" v-if="errores.categoria">{{ errores.categoria }}</span><br>
+
+      <label>Cantidad:</label>
+      <input type="number" v-model="nuevaCantidad" />
+      <span class="error" v-if="errores.cantidad">{{ errores.cantidad }}</span><br>
+
+      <button type="submit">Agregar</button>
+    </form>
+
+    <!-- Lista de materiales -->
+    <h2>Materiales registrados</h2>
+    <table v-if="inventario.length > 0">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Cantidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in inventario" :key="index">
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.categoria }}</td>
+          <td>{{ item.cantidad }}</td>
+          <td>
+            <button @click="eliminarMaterial(index)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p v-if="inventario.length === 0">No hay materiales registrados.</p>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          // Variables reactivas
+          nuevoNombre: "",
+          nuevaCategoria: "",
+          nuevaCantidad: "",
+          inventario: [],
+          errores: { nombre: "", categoria: "", cantidad: "" }
+        };
+      },
+      methods: {
+        validarCampos() {
+          this.errores = { nombre: "", categoria: "", cantidad: "" };
+          let valido = true;
+
+          if (!this.nuevoNombre.trim()) {
+            this.errores.nombre = "El nombre es obligatorio.";
+            valido = false;
+          }
+          if (!this.nuevaCategoria.trim()) {
+            this.errores.categoria = "La categoría es obligatoria.";
+            valido = false;
+          }
+          if (!this.nuevaCantidad || this.nuevaCantidad <= 0) {
+            this.errores.cantidad = "La cantidad debe ser mayor a 0.";
+            valido = false;
+          }
+          return valido;
+        },
+        agregarMaterial() {
+          if (this.validarCampos()) {
+            this.inventario.push({
+              nombre: this.nuevoNombre,
+              categoria: this.nuevaCategoria,
+              cantidad: this.nuevaCantidad
+            });
+            // Limpiar inputs
+            this.nuevoNombre = "";
+            this.nuevaCategoria = "";
+            this.nuevaCantidad = "";
+          }
+        },
+        eliminarMaterial(index) {
+          this.inventario.splice(index, 1);
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+</html>
