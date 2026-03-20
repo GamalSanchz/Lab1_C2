@@ -4,13 +4,145 @@
   <meta charset="UTF-8">
   <title>Sistema de Inventario Escolar</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    input, button { margin: 5px; padding: 5px; }
-    .error { color: red; font-size: 0.9em; }
-    table { border-collapse: collapse; width: 100%; margin-top: 15px; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-  </style>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eef2f7;
+    min-height: 100vh;
+    padding: 2rem;
+  }
+
+  #app {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 14px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    color: #1a73e8;
+    border-bottom: 3px solid #1a73e8;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 1.5rem 0 1rem;
+  }
+
+  form {
+    background: #f8faff;
+    border: 1px solid #e0eaff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 0.55rem 0.9rem;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 3px rgba(26,115,232,0.15);
+  }
+
+  button[type="submit"] {
+    margin-top: 1.2rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0.65rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #1558b0;
+  }
+
+  .error {
+    color: #e53935;
+    font-size: 0.82rem;
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+
+  thead {
+    background-color: #1a73e8;
+    color: white;
+  }
+
+  th, td {
+    border: none;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  tbody tr:hover {
+    background-color: #f0f7ff;
+  }
+
+  tbody tr td:last-child button {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+
+  tbody tr td:last-child button:hover {
+    background-color: #b71c1c;
+  }
+
+  p {
+    color: #999;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+</style>
 </head>
 <body>
   <div id="app">

@@ -1,0 +1,119 @@
+/* ===== RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f7;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+#app {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ===== TARJETA DEL FORMULARIO ===== */
+.formulario,
+form,
+div {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* ===== TÍTULO PRINCIPAL ===== */
+h1 {
+  font-size: 1.8rem;
+  color: #1a73e8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #1a73e8;
+}
+
+h2 {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+/* ===== LABELS ===== */
+label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 0.3rem;
+  margin-top: 0.8rem;
+}
+
+/* ===== INPUTS ===== */
+input[type="text"],
+input[type="number"],
+input {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+}
+
+/* ===== BOTÓN AGREGAR ===== */
+button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #1558b0;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ===== LISTA DE MATERIALES ===== */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f0f7ff;
+  border-left: 4px solid #1a73e8;
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* ===== MENSAJE VACÍO ===== */
+p {
+  color: #888;
+  font-style: italic;
+}
